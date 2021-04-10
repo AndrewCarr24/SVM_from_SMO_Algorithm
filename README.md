@@ -11,7 +11,6 @@ This implementation of SVM currently supports two kernels - a linear kernel and 
 from sklearn import datasets
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.colors import ListedColormap
 
 # Reading data
 iris = datasets.load_iris()
@@ -33,7 +32,7 @@ Let's train an SVM that uses a linear decision boundary. This is the default ker
 
 
 ```python
-svm_mod = SVM(epsilon = .0001)
+svm_mod = SVM()
 ```
 
 The default C parameter is 1.
@@ -87,10 +86,13 @@ This model also supports RBF kernels. Here, I estimate several SVM's using diffe
 ```python
 plt.rcParams['figure.figsize'] = [10, 10]
 
+# Defining C and gamma parms 
+C_grid, gamma_grid = np.meshgrid(np.array([.1, 1, 100]), np.array([.1, 1, 5]))
+
 # Fitting SVM's and getting predictions for different hyperparameter values 
 fig, ax_list = plt.subplots(3, 3)
 np.random.seed(123)
-for C_i, gamma_i, ax in zip([.1, .1, .1, 1, 1, 1, 100, 100, 100], [.1, 1, 5, .1, 1, 5, .1, 1, 5], ax_list.flatten()):
+for C_i, gamma_i, ax in zip(C_grid.ravel(), gamma_grid.ravel(), ax_list.flatten()):
     
     # Storing SVM object
     svm_mod = SVM(C = C_i, gamma = gamma_i, max_iter = 100, kernel = "rbf")
