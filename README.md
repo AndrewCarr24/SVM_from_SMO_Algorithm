@@ -1,3 +1,10 @@
+## SVM_SMO
+
+An implementation of a support vector machine, trained using sequential minimal optimization.
+
+This repository contains a "from scratch" implementation of a support vector machine. The weights in this model were trained using sequential minimal optimization. A good overview of SVM optimization can be found [here](http://cs229.stanford.edu/materials/smo.pdf). A detailed overview of the mathematics behind the SMO algorithm (on which my implementation is based) can be found [here](http://fourier.eng.hmc.edu/e176/lectures/ch9/node9.html).
+
+
 ```python
 from sklearn import datasets
 import numpy as np
@@ -45,7 +52,7 @@ for C_i, gamma_i, ax in zip([.1, .1, .1, 1, 1, 1, 100, 100, 100], [.1, 1, 5, .1,
 ```
 
 
-![png](README_files/README_1_0.png)
+![png](README_files/README_2_0.png)
 
 
 
