@@ -74,17 +74,11 @@ Z = predictions.reshape(xx.shape)
 
 plt.contourf(xx, yy, Z, cmap=plt.cm.coolwarm, alpha=0.8)
 plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.coolwarm, s=20, edgecolors='k')
+plt.show()
 ```
 
 
-
-
-    <matplotlib.collections.PathCollection at 0x13683a898>
-
-
-
-
-![png](README_files/README_11_1.png)
+![png](README_files/README_11_0.png)
 
 
 This model also supports RBF kernels. Here, I estimate several SVM's using different combinations of C and gammma parameters. 
