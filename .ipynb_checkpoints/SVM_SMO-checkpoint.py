@@ -60,7 +60,11 @@ class SVM():
         if self.kernel == 'linear':
             self.bias = np.mean(y - np.dot(w_fin.reshape(1,-1),X.T))
         else:
-            self.bias = bias
+            wx = []
+            for k in range(len(X)):
+                wx.append(np.sum(alphas.reshape(-1) * y * self.K(X[k], X)))
+            wx = np.array(wx)
+            self.bias = np.mean(y - wx)
         
         self.train_X = X
         self.train_y = y
@@ -156,7 +160,8 @@ class SVM():
             wx = []
             for k in range(len(X)):
                 wx.append(np.sum(self.alpha.reshape(-1) * self.train_y * self.K(X[k], self.train_X)))
-            wx = np.array(wx) 
+            wx = np.array(wx)
+            # bias = np.mean(self.train_y - wx)
             return np.sign(wx + self.bias)
                 
         
