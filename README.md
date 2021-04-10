@@ -81,7 +81,7 @@ plt.show()
 ![png](README_files/README_11_0.png)
 
 
-This model also supports RBF kernels. Here, I estimate several SVM's using different combinations of C and gammma parameters. 
+This model also supports RBF kernels. Here, I estimate several SVM's using different combinations of C and gamma parameters. 
 
 
 ```python
