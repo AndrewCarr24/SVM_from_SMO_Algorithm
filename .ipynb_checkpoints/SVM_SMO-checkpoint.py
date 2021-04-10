@@ -52,8 +52,16 @@ class SVM():
                 break
                 
         self.alpha = alphas
-        self.bias = bias
-        self.w = np.sum(X * (y * alphas.reshape(-1)).reshape(-1, 1), axis = 0)
+        # self.bias = bias
+        
+        w_fin = np.sum(X * (y * alphas.reshape(-1)).reshape(-1, 1), axis = 0)
+        self.w = w_fin
+        
+        if self.kernel == 'linear':
+            self.bias = np.mean(y - np.dot(w_fin.reshape(1,-1),X.T))
+        else:
+            self.bias = bias
+        
         self.train_X = X
         self.train_y = y
          
