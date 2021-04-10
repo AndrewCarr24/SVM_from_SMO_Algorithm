@@ -1,15 +1,10 @@
 ```python
-from SVM_SMO import SVM 
 from sklearn import datasets
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
-
 plt.rcParams['figure.figsize'] = [10, 10]
-```
 
-
-```python
 # Reading data
 iris = datasets.load_iris()
 X = iris["data"][:, (2, 3)][(np.where((iris["target"] == 1) | (iris["target"] == 2)))]
@@ -26,6 +21,8 @@ input_df = np.c_[xx.ravel(), yy.ravel()]
 
 
 ```python
+from SVM_SMO import SVM 
+
 # Fitting SVM's and getting predictions for different hyperparameter values 
 fig, ax_list = plt.subplots(3, 3)
 np.random.seed(123)
@@ -48,7 +45,7 @@ for C_i, gamma_i, ax in zip([.1, .1, .1, 1, 1, 1, 100, 100, 100], [.1, 1, 5, .1,
 ```
 
 
-![png](README_files/README_2_0.png)
+![png](README_files/README_1_0.png)
 
 
 
